@@ -7,14 +7,18 @@ import java.util.stream.IntStream;
  * Deze klasse slaat een lijst int-waarden op.
  * TODO is dus mutable
  * @invar | 0<= getLength()
+ * @invar | getLength() == getArray().length
  * @invar | getArray() != null
  * @invar | getArray().length == getLength()
  * @invar | IntStream.range(0, getLength()).allMatch(
  * 			| i -> getArray()[i] == getElement(i))
+ * TODO die laatste moet niet per se met een for-loop
  */
 public class IntList {
 	
-		
+	/**
+	 * @creates | result	
+	 */
 	public int getLength() {
 		;
 	}
@@ -29,7 +33,6 @@ public class IntList {
 	}
 	
 	/**
-	 * @creates | this
 	 * @post | getLength() == 0
 	 * @post | getArray() == new int[] {}
 	 */
@@ -43,12 +46,15 @@ public class IntList {
 	 * @post | Arrays.equals(old(getArray()), 0, old(getLength()),
 	 * 	     | getArray(), 0, old(getLength()))
 	 * @post Het laatste element van de nieuwe lijst is b
+	 * 		| getElement(old(getLength())) == b
 	 */
 	public void add(int b) {
 		;
 	}
 	
 	/**
+	 * TODO niet vergeten!
+	 * @pre | 0 < getLength()
 	 * cf add
 	 */
 	public void remove(int c) {
